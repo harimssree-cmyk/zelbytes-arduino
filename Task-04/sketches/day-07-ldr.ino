@@ -1,86 +1,51 @@
-#include <DHT.h>
+const uint8_t LDR_PIN = A0;
+const float VREF = 5.0;
 
-// DHT22
-#define DHT_PIN 4
-#define DHT_TYPE DHT22
-DHT dht(DHT_PIN, DHT_TYPE);
+// Adjust after calibration
+const int DARK_THRESHOLD = 300;
+const int BRIGHT_THRESHOLD = 700;
 
-// Ultrasonic
-const int trigPin = 9;
-const int echoPin = 10;
+int readAveraged(uint8_t pin, uint8_t samples = 8) {
+  long sum = 0;
 
-// Soil Moisture
-const int MOIST_PIN = A1;
-const int MOIST_PWR = 7;
-
-// Functions
-int readMoistRaw() {
-  digitalWrite(MOIST_PWR, HIGH);
-  delay(10);
-
-  int value = analogRead(MOIST_PIN);
-
-  digitalWrite(MOIST_PWR, LOW);
-
-  return value;
-}
-
-float readDistance() {
-
-  digitalWrite(trigPin, LOW);
-  delayMicroseconds(2);
-
-  digitalWrite(trigPin, HIGH);
-  delayMicroseconds(10);
-
-  digitalWrite(trigPin, LOW);
-
-  long duration = pulseIn(echoPin, HIGH, 30000);
-
-  if (duration == 0) {
-    return -1;
+  for (uint8_t i = 0; i < samples; i++) {
+    sum += analogRead(pin);
+    delay(2);
   }
 
-  return duration * 0.0343 / 2.0;
+  return sum / samples;
 }
 
 void setup() {
-
   Serial.begin(9600);
-
-  dht.begin();
-
-  pinMode(trigPin, OUTPUT);
-  pinMode(echoPin, INPUT);
-
-  pinMode(MOIST_PWR, OUTPUT);
-  digitalWrite(MOIST_PWR, LOW);
-
-  Serial.println("millis,temp,humidity,distance_cm,soil_raw");
+  Serial.println(F("raw,voltage,light_level"));
 }
 
 void loop() {
 
-  float humidity = dht.readHumidity();
-  float temperature = dht.readTemperature();
+  int raw = readAveraged(LDR_PIN);
 
-  float distance = readDistance();
+  float voltage = raw * (VREF / 1023.0);
 
-  int moistRaw = readMoistRaw();
+  String level;
 
-  Serial.print(millis());
+  if (raw < DARK_THRESHOLD) {
+    level = "DARK";
+  }
+  else if (raw > BRIGHT_THRESHOLD) {
+    level = "BRIGHT";
+  }
+  else {
+    level = "AMBIENT";
+  }
+
+  Serial.print(raw);
   Serial.print(",");
 
-  Serial.print(temperature, 1);
+  Serial.print(voltage, 3);
   Serial.print(",");
 
-  Serial.print(humidity, 1);
-  Serial.print(",");
+  Serial.println(level);
 
-  Serial.print(distance, 1);
-  Serial.print(",");
-
-  Serial.println(moistRaw);
-
-  delay(2000);
+  delay(1000);
 }
