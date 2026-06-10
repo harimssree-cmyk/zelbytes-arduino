@@ -62,19 +62,6 @@ from any state:
 Valve OFF
 Manual reset required
 ```
-
-## Thresholds
-
-```cpp
-SOIL_MIN = 25;
-SOIL_TARGET = 40;
-
-MAX_RUN_MS = 30000;
-COOLDOWN_MS = 10000;
-
-MAX_SENSOR_FAILURES = 3;
-```
-
 ## Safety Notes
 
 - Supervised wet testing only.
