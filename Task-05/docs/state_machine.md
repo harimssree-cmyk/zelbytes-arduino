@@ -26,42 +26,32 @@
 
 ---
 
-## State Diagram
+# State Machine
 
 ```text
-                 +-------+
-                 | IDLE  |
-                 +-------+
-                     |
-                     | moisture < SOIL_MIN
-                     v
-             +---------------+
-             | IRRIGATING    |
-             +---------------+
-                     |
-                     | moisture > SOIL_TARGET
-                     | OR max runtime reached
-                     v
-              +-------------+
-              | COOLDOWN    |
-              +-------------+
-                     |
-                     | cooldown complete
-                     v
-                 +-------+
-                 | IDLE  |
-                 +-------+
+                 Dry Soil Detected
+          +----------------------------+
+          |                            |
+          v                            |
+      +--------+                  +-----------+
+      |  IDLE  | ---------------->| IRRIGATING|
+      +--------+                  +-----------+
+          ^                            |
+          |                            |
+          | Cooldown Complete          | Watering Complete
+          |                            v
+      +----------+ <-------------------+
+      | COOLDOWN |
+      +----------+
 
-Sensor failure (3 consecutive failures)
-from any state:
-
-      +-------+
-      |FAULT  |
-      +-------+
-
-Valve OFF
-Manual reset required
+DHT Failure (3 Consecutive Reads)
+                 |
+                 v
+            +--------+
+            | FAULT  |
+            +--------+
 ```
+
 ## Safety Notes
 
 - Supervised wet testing only.
