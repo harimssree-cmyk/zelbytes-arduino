@@ -19,7 +19,7 @@ enum State {
 State currentState = IDLE;
 
 // Adjust after calibration
-const int soilThreshold = 900;
+const int soilThreshold = 400;
 
 // Timing
 const unsigned long irrigationTime = 5000; // 5 sec
