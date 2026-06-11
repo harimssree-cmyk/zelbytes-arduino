@@ -1,15 +1,14 @@
 #ifndef THRESHOLDS_H
 #define THRESHOLDS_H
 
-// Moisture thresholds (%)
-const int SOIL_MIN = 25;      // Start irrigation below this
-const int SOIL_TARGET = 40;   // Stop irrigation above this
+// Soil moisture threshold
+const int SOIL_THRESHOLD = 400;
 
-// Timing settings
-const unsigned long MAX_RUN_MS = 30000;   // 30 seconds max irrigation
-const unsigned long COOLDOWN_MS = 10000;  // 10 seconds cooldown
+// Irrigation timing
+const unsigned long IRRIGATION_TIME = 5000;   // 5 seconds
+const unsigned long COOLDOWN_TIME = 10000;    // 10 seconds
 
-// Sensor fault settings
-const int MAX_SENSOR_FAILURES = 3;  // Enter FAULT after 3 failures
+// DHT11 fault detection
+const int MAX_DHT_FAILURES = 3;
 
 #endif
