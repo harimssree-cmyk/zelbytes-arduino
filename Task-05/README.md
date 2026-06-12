@@ -123,7 +123,3 @@ Result: PASS
 Successfully implemented a state-machine-based irrigation system with threshold control, hysteresis logic, cooldown protection, runtime safety, and fault detection.
 
 ---
-
-## Author
-
-Anamika SS
