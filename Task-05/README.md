@@ -124,3 +124,6 @@ Successfully implemented a state-machine-based irrigation system with threshold 
 
 ---
 
+## Author
+
+Anamika SS
