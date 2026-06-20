@@ -1,8 +1,8 @@
-\# Task 9 – Automated Grow-Bench Prototype
+# Task 9 – Automated Grow-Bench Prototype
 
 
 
-\## Objective
+## Objective
 
 
 
@@ -10,49 +10,50 @@ Develop an automated irrigation system using ESP32 and a soil moisture sensor. T
 
 
 
-\## Features
+## Features
 
 
 
-\- Automatic irrigation based on soil moisture threshold
+- Automatic irrigation based on soil moisture threshold
 
-\- Manual override using push button
+- Manual override using push button
 
-\- Relay-controlled water pump
+- Relay-controlled water pump
 
-\- Serial command interface
+- Serial command interface
 
-\- ESP32 web server for relay control
+- ESP32 web server for relay control
 
-\- Zelbytes IoT Lab cloud telemetry upload
+- Zelbytes IoT Lab cloud telemetry upload
 
-\- Streamlit dashboard for monitoring and logging
+- Streamlit dashboard for monitoring and logging
 
-\- Soil moisture history chart
-
-
-
-\## Hardware Components
+- Soil moisture history chart
 
 
 
-\- ESP32 Development Board
-
-\- Soil Moisture Sensor
-
-\- Relay Module
-
-\- Push Button
-
-\- LED Indicator
-
-\- Jumper Wires
-
-\- USB Cable
+## Hardware Components
 
 
 
-\## Pin Configuration
+- ESP32 Development Board
+
+- Soil Moisture Sensor
+
+- Relay Module
+
+- Push Button
+
+- LED Indicator
+
+
+- Jumper Wires
+
+- USB Cable
+
+
+
+## Pin Configuration
 
 
 
@@ -70,7 +71,7 @@ Develop an automated irrigation system using ESP32 and a soil moisture sensor. T
 
 
 
-\## Working Principle
+## Working Principle
 
 
 
@@ -86,11 +87,11 @@ The ESP32 hosts a web server that allows relay control through a Streamlit dashb
 
 
 
-\## Serial Commands
+## Serial Commands
 
 
 
-\### STATUS
+### STATUS
 
 
 
@@ -98,15 +99,15 @@ Displays:
 
 
 
-\- Soil moisture percentage
+- Soil moisture percentage
 
-\- Pump status
+- Pump status
 
-\- Operating mode
+- Operating mode
 
 
 
-\### FORCE\_ON
+### FORCE\_ON
 
 
 
@@ -114,7 +115,7 @@ Turns the pump ON manually.
 
 
 
-\### FORCE\_OFF
+### FORCE\_OFF
 
 
 
@@ -122,43 +123,43 @@ Turns the pump OFF manually.
 
 
 
-\## Dashboard Features
+## Dashboard Features
 
 
 
-\- Live soil moisture percentage display
+- Live soil moisture percentage display
 
-\- Moisture level progress bar
+- Moisture level progress bar
 
-\- Relay ON control
+- Relay ON control
 
-\- Relay OFF control
+- Relay OFF control
 
-\- Relay status monitoring
+- Relay status monitoring
 
-\- Previous log display
+- Previous log display
 
-\- Soil moisture history graph
-
-
-
-\## Software Requirements
+- Soil moisture history graph
 
 
 
-\- Streamlit
-
-\- Requests
-
-\- Pandas
+## Software Requirements
 
 
 
-\## Testing Performed
+- Streamlit
+
+- Requests
+
+- Pandas
 
 
 
-\### Automatic Mode Test
+## Testing Performed
+
+
+
+### Automatic Mode Test
 
 
 
@@ -166,7 +167,7 @@ Dry soil condition successfully activated the relay and water pump.
 
 
 
-\### Manual Override Test
+### Manual Override Test
 
 
 
@@ -174,7 +175,7 @@ Push button successfully toggled relay state.
 
 
 
-\### Serial Command Test
+### Serial Command Test
 
 
 
@@ -182,7 +183,7 @@ STATUS, FORCE\_ON, and FORCE\_OFF commands executed correctly.
 
 
 
-\### Dashboard Test
+### Dashboard Test
 
 
 
@@ -190,7 +191,7 @@ Dashboard displayed live soil moisture readings and relay controls functioned pr
 
 
 
-\### Cloud Telemetry Test
+### Cloud Telemetry Test
 
 
 
@@ -198,7 +199,7 @@ Soil moisture data was successfully uploaded to the Zelbytes IoT Lab API.
 
 
 
-\## Results
+## Results
 
 
 
@@ -206,23 +207,9 @@ The automated grow-bench prototype successfully monitored soil moisture, control
 
 
 
-\## Screenshots
 
 
-
-\- Hardware Setup
-
-\- Dashboard View
-
-\- Relay ON State
-
-\- Relay OFF State
-
-\- Serial Monitor Output
-
-
-
-\## Conclusion
+## Conclusion
 
 
 
@@ -230,7 +217,7 @@ The project successfully demonstrates an IoT-enabled automated irrigation system
 
 
 
-\## Note
+## Note
 
 
 
